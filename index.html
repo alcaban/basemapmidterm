@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Midterm: Welcome to Northeastern!</title>
+
+         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+           crossorigin=""/>
+
+         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+           crossorigin=""></script>
+
+         <style type="text/css">
+          html, body { margin: 0; padding: 0; height: 100%; }
+          #map { min-height: 100%; }
+        </style>
+
+    <link rel="icon" href="eagle.png" >
+
+    <style>
+        .multicolor-text {
+            text-align: center;
+            font-size: 50px;
+            background: linear-gradient(to left,
+                    gold,
+                    royalblue);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+    </style>
+
+    </head>
+
+    <body>
+
+    <div class="multicolor-text">
+        Welcome To Northeastern University!
+    </div>
+
+        <div id="map"></div>
+
+        <script type="text/javascript">
+
+          var map = L.map('map', {
+              center: [41.9801802,-87.7181205],
+              zoom: 17
+          });
+
+          L.tileLayer('https://tileserver.memomaps.de/tilegen/{z}/{x}/{y}.png', {
+               attribution: 'Map <a href="https://memomaps.de/">memomaps.de</a> <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+               maxZoom: 19,
+               minZoom: 17
+            }).addTo(map);
+
+          var dormsIcon = L.icon({
+              iconUrl: 'dorms.png', 
+              iconSize:     [28, 28], 
+              iconAnchor:   [19, 19], 
+              popupAnchor:  [0, -10] 
+          });
+            var geographyIcon = L.icon({
+              iconUrl: 'geography.png', 
+              iconSize:     [28, 28], 
+              iconAnchor:   [19, 19], 
+              popupAnchor:  [0, -10] 
+          });
+            var libraryIcon = L.icon({
+              iconUrl: 'library.png', 
+              iconSize:     [28, 28], 
+              iconAnchor:   [19, 19], 
+              popupAnchor:  [0, -10] 
+          });
+            var cafeteriaIcon = L.icon({
+              iconUrl: 'cafeteria.png', 
+              iconSize:     [28, 28], 
+              iconAnchor:   [19, 19], 
+              popupAnchor:  [0, -10] 
+          });
+              var financialIcon = L.icon({
+              iconUrl: 'financial.png', 
+              iconSize:     [28, 28], 
+              iconAnchor:   [19, 19], 
+              popupAnchor:  [0, -10] 
+          });
+                var gymIcon = L.icon({
+              iconUrl: 'gym.png', 
+              iconSize:     [28, 28], 
+              iconAnchor:   [19, 19], 
+              popupAnchor:  [0, -10] 
+          });
+
+          var marker1 = L.marker([41.9819761,-87.7178583], {icon: financialIcon}).addTo(map);
+          var marker2 = L.marker([41.9813671,-87.7187261], {icon: cafeteriaIcon}).addTo(map);
+          var marker3 = L.marker([41.9795949,-87.7196768], {icon: dormsIcon}).addTo(map);
+          var marker4 = L.marker([41.9803049,-87.7190951], {icon: libraryIcon}).addTo(map);
+          var marker5 = L.marker([41.9805362,-87.7171585], {icon: geographyIcon}).addTo(map);
+          var marker6 = L.marker([41.9778698,-87.7172185], {icon: gymIcon}).addTo(map);
+          
+
+          var pic1 = '<center><img src="https://th.bing.com/th/id/OIP.yGuUMSNJcDdOKmxBLDl_2AHaEM?pid=ImgDet&rs=1" alt="Financial Aid Office" width="250"></center>';
+          var pic2 = '<center><img src="https://neiuindependent.org/wp-content/uploads/2022/08/IMG-4777-rotated.jpg" alt="Cafeteria" width="250"></center>';
+          var pic3 = '<center><img src="https://primeraeng.com/wp-content/uploads/2017/08/Nest_0540_JohnnyStevens_Hero.jpg" alt="The Nest Dorms" width="250"></center>';
+          var pic4 = '<center><img src="https://www.neiu.edu/sites/default/files/styles/feature_image/public/hub.neiu.edu/news-images/2017/01/19/LOC-main-campus-library.jpg?itok=o60iSavx" alt="Ronald Williams Library" width="250"></center>';
+          var pic5 = '<center><img src="https://upload.wikimedia.org/wikipedia/commons/6/68/NEIU_Sci.jpg" alt="BBH" width="250"></center>';
+          var pic6 = '<center><img src="https://www.neiu.edu/sites/default/files/styles/feature_image/public/university-life/unit-dept-homepage-feature-images/2016/02/15/campus-rec-center.jpg?itok=4lc-4EYE" alt="P.E. Complex" width="250"></center>';
+
+          marker1.bindPopup('<h3 style="color:royalblue; font-weight:bold; text-align:center"> Financial Aid Office</h3>Visit the financial aid office for any questions about loans, scholarships, FASFA, and more. <center><p style="color:royalblue; font-weight:bold; text-align:center">Our current hours are:</p><p><i>Monday and Friday: 8:30 a.m. - 4:30 p.m.;</p><p>Tuesday, Wednesday, Thursday 8:30 a.m. - 6:00 p.m.</i></p></center>' + pic1);
+
+          marker2.bindPopup('<h3 style="color:royalblue; font-weight:bold; text-align:center"> Cafeteria</h3><p>Looking for some lunch or even a quick bite?</p><p>Make your way downstairs to our cafeteria which is located on the <i>ground level</i>.</p><p style="color:royalblue; font-weight:bold; text-align:center">Current hours of operation are:</p><i>Monday and Friday: 8:30 a.m. - 4:30 p.m.; <p> Tuesday, Wednesday, Thursday 8:30 a.m. - 6:00 p.m.</i></p></center>' + pic2);
+
+          marker3.bindPopup('<h3 style="color:royalblue; font-weight:bold; text-align:center"> The Nest</h3><p>This is the "Eagles Nest" where all the dorms are located, very conveniently close to class!</p>' + pic3);
+
+          marker4.bindPopup('<h3 style="color:royalblue; font-weight:bold; text-align:center"> Ronald Williams Library</h3><p>If you are looking for a good place to study, remote printing options, borrowing a book, or even a cup of joe-- our library has you covered.</p><p style="color:royalblue; font-weight:bold; text-align:center">Current hours of operation are:</p>Monday through Thursday: 8:00 a.m. - 9:00p.m.; <p> Friday 8:00 a.m. - 6:00 p.m.<p> Saturday 9:00 a.m. - 5:00 p.m. <p> Sunday 12:00 p.m.- 4:00 p.m.</i></p></center>' + pic4);
+
+          marker5.bindPopup('<h3 style="color:royalblue; font-weight:bold; text-align:center"> Welcome to BBH!</br></h3><p>This is BBH where you will be taking all of your main G&ES classes!</p>' + pic5);
+
+          marker6.bindPopup('<h3 style="color:royalblue; font-weight:bold; text-align:center"> P.E. Complex</br></h3><p>A great facility to use if you need a break from your classwork and want to get active!</p><p style="color:royalblue; font-weight:bold; text-align:center">Current hours of operation are:</p><p><i>Monday through Thursday: 8:00 a.m. - 9:00p.m.; <p> Friday 8:00 a.m. - 6:00 p.m.<p> Saturday 9:00 a.m. - 5:00 p.m. <p> Sunday 12:00 p.m.- 4:00 p.m.</i></p></center>' + pic6);
+
+        </script>
+   </body>
+</html>
